@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-console.log(db_credentials);
+
 mongoose.connect(`mongodb+srv://${db_credentials.dbUser}:${db_credentials.dbPass}@cluster0.wlamz.mongodb.net/todolistDB?retryWrites=true&w=majority`);
 
 const itemsSchema = { name: String };
