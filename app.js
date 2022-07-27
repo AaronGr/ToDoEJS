@@ -9,6 +9,7 @@ let db_credentials = {
     dbPass: process.env.MONGO_DB_PASS
 }
 
+console.log(db_credentials)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
