@@ -4,12 +4,17 @@ const _ = require('lodash');
 const app = express();
 const port = 3000;
 
+let db_credentials = {
+    dbUser: process.env.MONGO_DB_USER,
+    dbPass: process.env.MONGO_DB_PASS
+}
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-
-mongoose.connect("mongodb+srv://agrav12825:<Password>@cluster0.wlamz.mongodb.net/todolistDB?retryWrites=true&w=majority");
+console.log(db_credentials);
+mongoose.connect(`mongodb+srv://${db_credentials.dbUser}:${db_credentials.dbPass}@cluster0.wlamz.mongodb.net/todolistDB?retryWrites=true&w=majority`);
 
 const itemsSchema = { name: String };
 
