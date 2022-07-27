@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const _ = require('lodash');
 const PORT = process.env.PORT || 5000;
+const app = express();
 
 let db_credentials = {
     dbUser: process.env.MONGO_DB_USER,
