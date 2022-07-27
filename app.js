@@ -1,15 +1,13 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const _ = require('lodash');
-const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 5000;
 
 let db_credentials = {
     dbUser: process.env.MONGO_DB_USER,
     dbPass: process.env.MONGO_DB_PASS
 }
 
-console.log(db_credentials)
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -141,4 +139,4 @@ app.get('/about', (req, res) => {
     res.render("about");
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
